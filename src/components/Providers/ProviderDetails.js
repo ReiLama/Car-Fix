@@ -34,14 +34,14 @@ const ProviderDetails = () => {
         setProvider(...providers.filter((pr)=>{
             return pr.id === Number(id)
         }));
-    }, [id]);
+    }, [id, providers]);
 
     return ( 
         <div className="details_container">
             <h1>{provider.name}</h1>
-            <p>{provider.location}</p>
+            <p><b>{provider.location}</b></p>
             <img src={provider.image_url} alt="img" />
-            <h2>{provider.bio}</h2>
+            <h2>Rregullojm makina(bio for test)</h2>
             <button><b>Add Reservation</b></button>
         </div>
      );

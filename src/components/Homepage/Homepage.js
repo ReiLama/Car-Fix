@@ -16,7 +16,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import { styled, alpha } from "@mui/material/styles";
 import ToggleMenu from "./ToggleMenu/ToggleMenu";
-
+import { Link } from 'react-router-dom';
+ 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
