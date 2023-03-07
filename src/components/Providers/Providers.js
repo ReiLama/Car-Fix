@@ -25,7 +25,49 @@ const Providers = () => {
             image_url: "https://performanceautospecialists.com/wp-content/uploads/2019/05/46212975_m.jpg",
             name: "Oficina Shpetimi",
             bio: "Rregullojm makina"
-        }
+        },
+        {
+            id: 2,
+            location: "Durres, Qender",
+            image_url: "https://performanceautospecialists.com/wp-content/uploads/2019/05/46212975_m.jpg",
+            name: "Oficina Shpetimi",
+            bio: "Rregullojm makina"
+        },
+        {
+            id: 2,
+            location: "Durres, Qender",
+            image_url: "https://performanceautospecialists.com/wp-content/uploads/2019/05/46212975_m.jpg",
+            name: "Oficina Shpetimi",
+            bio: "Rregullojm makina"
+        },
+        {
+            id: 2,
+            location: "Durres, Qender",
+            image_url: "https://performanceautospecialists.com/wp-content/uploads/2019/05/46212975_m.jpg",
+            name: "Oficina Shpetimi",
+            bio: "Rregullojm makina"
+        },
+        {
+            id: 2,
+            location: "Durres, Qender",
+            image_url: "https://performanceautospecialists.com/wp-content/uploads/2019/05/46212975_m.jpg",
+            name: "Oficina Shpetimi",
+            bio: "Rregullojm makina"
+        },
+        {
+            id: 2,
+            location: "Durres, Qender",
+            image_url: "https://performanceautospecialists.com/wp-content/uploads/2019/05/46212975_m.jpg",
+            name: "Oficina Shpetimi",
+            bio: "Rregullojm makina"
+        },
+        {
+            id: 2,
+            location: "Durres, Qender",
+            image_url: "https://performanceautospecialists.com/wp-content/uploads/2019/05/46212975_m.jpg",
+            name: "Oficina Shpetimi",
+            bio: "Rregullojm makina"
+        },
     ]);
 
     return (
