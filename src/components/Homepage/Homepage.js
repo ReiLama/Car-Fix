@@ -15,6 +15,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import { styled, alpha } from "@mui/material/styles";
+import ToggleProfileMenu from "./ToggleProfileMenu/ToggleProfileMenu"
 
 import ToggleMenu from "./ToggleMenu/ToggleMenu";
 
@@ -81,7 +82,7 @@ function Homepage() {
           <ToggleMenu />
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}></Box>
 
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <AdbIcon sx={{ display: { xs: "flex" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -89,7 +90,7 @@ function Homepage() {
             href=""
             sx={{
               mr: 2,
-              display: { xs: "flex", md: "none" },
+              display: { xs: "flex" },
               flexGrow: 1,
               fontFamily: "monospace",
               fontWeight: 700,
@@ -148,6 +149,7 @@ function Homepage() {
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
+                  <ToggleProfileMenu />
                 </MenuItem>
               ))}
             </Menu>
