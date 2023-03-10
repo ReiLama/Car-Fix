@@ -5,8 +5,7 @@
 }
 
 .provider-card {
-    margin: 38px;
-    border: 2px solid lightgray;
+    margin: 40px;
     border-radius: 11px;
     cursor: pointer;
     background-color: white;
@@ -20,42 +19,20 @@
 }
 
 .provider-card:hover{
-    background: linear-gradient(0deg, white 0%, rgb(142, 142, 142) 100%);
+    background: linear-gradient(0deg, white 0%, rgb(199, 198, 198) 100%);
     box-shadow: 4px 4px 10px;
 }
 
 .provider-card:active{
-    background: linear-gradient(0deg, white 0%, rgb(73, 72, 72) 100%);
+    background: linear-gradient(0deg, white 0%, rgb(133, 132, 132) 100%);
     box-shadow: 1px 1px 2px 0px;
 }
 
 .provider-card img {
-    width: 320px;
+    width: 350px;
     height: 220px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
-}
-
-.details_container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.details_container img {
-    width: 580px;
-}
-
-.details_container button {
-    width: 150px;
-    height: 38px;
-    font-size: 15px;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    background-color: rgb(40, 47, 140);
-    color: white;
-    cursor: pointer;
 }
 
 @media only screen and (max-width: 480px) {
@@ -90,7 +67,6 @@
 
     .provider-card {
         margin: 30px;
-        border: 2px solid lightgray;
         border-radius: 11px;
         cursor: pointer;
         background-color: white;

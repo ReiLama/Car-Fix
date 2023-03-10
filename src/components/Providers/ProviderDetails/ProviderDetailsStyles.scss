@@ -1,0 +1,156 @@
+$color-theme: rgb(40, 47, 140);
+
+.provider-details {
+    display: flex;
+}
+
+.services {
+    margin: 40px;
+}
+
+.side-details {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    border-right: solid 2px rgb(227, 225, 225);
+    height: 100%;
+    padding: 20px;
+}
+
+.side-details img {
+    width: 400px;
+    border-radius: 20px;
+    align-self: center;
+    box-shadow: 2px 3px 7px;
+}
+
+.side-details h1 {
+    align-self: center;
+    margin-bottom: -10px;
+}
+
+.side-details h2 {
+    margin-left: 20px;
+}
+
+.side-details p {
+    margin-left: 20px;
+    font-size: 18px;
+    overflow-y: auto;
+    height: 140px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px;
+    padding: 5px;
+}
+
+.button {
+    height: 50px;
+    width: 210px;
+    font-size: 19px;
+    align-self: center;
+    margin-top: 0px;
+    background-color: $color-theme;
+}
+
+@media only screen and (max-width: 480px) {
+    .provider-details {
+        display: flex;
+        flex-direction: column;
+    }
+    .side-details {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: 100%;
+        padding: 20px;
+        border: 0px solid rgb(227, 225, 225);
+        justify-content: center;
+    }
+    
+    .side-details img {
+        width: 240px;
+        border-radius: 20px;
+        align-self: center;
+        box-shadow: 2px 3px 7px;
+    }
+    
+    .side-details h1 {
+        align-self: center;
+        margin-bottom: -10px;
+    }
+    
+    .side-details h2 {
+        margin-left: 0px;
+        align-self: center;
+    }
+    
+    .side-details p {
+        margin-left: 0px;
+        font-size: 18px;
+        overflow-y: scroll;
+        height: 140px;
+        border-radius: 8px;
+        box-shadow: 1px 1px 5px;
+        padding: 5px;
+    }
+    
+    .button {
+        height: 50px;
+        width: 210px;
+        font-size: 19px;
+        align-self: center;
+    }
+  }
+
+@media only screen and (max-width: 620px) {
+    .provider-details {
+        display: flex;
+        flex-direction: column;
+    }
+    .side-details {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: 100%;
+        padding: 20px;
+        border: 0px solid rgb(227, 225, 225);
+        justify-content: center;
+    }
+    
+    .side-details img {
+        width: 240px;
+        border-radius: 20px;
+        align-self: center;
+        box-shadow: 2px 3px 7px;
+    }
+    
+    .side-details h1 {
+        align-self: center;
+        margin-bottom: -10px;
+    }
+    
+    .side-details h2 {
+        margin-left: 0px;
+        align-self: center;
+    }
+    
+    .side-details p {
+        margin-left: 0px;
+        font-size: 18px;
+        overflow-y: scroll;
+        height: 140px;
+        border-radius: 8px;
+        box-shadow: 1px 1px 5px;
+        padding: 5px;
+    }
+    
+    .button {
+        height: 50px;
+        width: 210px;
+        font-size: 19px;
+        align-self: center;
+    }
+  }
