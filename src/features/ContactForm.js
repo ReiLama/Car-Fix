@@ -1,12 +1,55 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Button, TextField } from "@mui/material";
+import "./contact-form.css";
 
 export default function ContactForm() {
   return (
     <Container>
-      <Row className="mb-5 mt-3">
-        <Col lg="8"></Col>
-      </Row>
+      <h1>Contact us</h1>
+      <p>
+        Please fill all the required information, and we will get back to you as
+        soon as possible!
+      </p>
+      <form className="contact-form">
+        <TextField
+          id="first-name"
+          label="First name"
+          variant="standard"
+          fullWidth
+          margin="dense"
+        />
+        <TextField
+          id="last-name"
+          label="Last name"
+          variant="standard"
+          fullWidth
+          margin="dense"
+        />
+        <TextField
+          id="email"
+          label="Email"
+          variant="standard"
+          fullWidth
+          margin="dense"
+        />
+        <TextField
+          id="phone-number"
+          label="Phone number"
+          variant="standard"
+          fullWidth
+          margin="dense"
+        />
+        <TextField
+          id="message"
+          label="Leave a message"
+          variant="standard"
+          fullWidth
+          margin="dense"
+        />
+        <Button className="contact-form-btn" margin="dense" variant="contained">
+          Save
+        </Button>
+      </form>
     </Container>
   );
 }
