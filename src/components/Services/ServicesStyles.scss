@@ -1,0 +1,73 @@
+$color-theme: rgb(40, 47, 140);
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.service-card {
+    display: flex;
+    margin: 20px;
+    width: 900px;
+    height: 200px;
+    border-radius: 11px;
+    box-shadow: 2px 3px 7px;
+}
+
+.img img {
+    width: 340px;
+    height: 200px;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.service-details {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    width: 510px;
+}
+
+.service-info h3 {
+    margin: 3px;
+    font-size: 21px;
+}
+
+.provider-info h3 {
+    margin: 3px;
+}
+
+.content p {
+    height: 80px;
+    width: 510px;
+    align-self: center;
+    overflow-y: auto;
+    border-bottom: 1px solid rgb(187, 187, 187);
+    margin: 5px;
+    border-bottom: solid 2px lightgray;
+    border-top: solid 2px lightgray;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.service-buttons {
+    display: flex;
+    width: 510px;
+    justify-content: space-between;
+    padding: 10px;
+    padding-top: 0px;
+    font-size: 20px;
+}
+
+.primary {
+    background-color: $color-theme;
+}
