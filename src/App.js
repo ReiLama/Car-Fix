@@ -8,7 +8,7 @@ import Services from "./components/Services/Services";
 function App() {
   return (
     <Router>
-        <Homepage />
+        <Homepage  />
           <Routes>
             <Route path="/" element={<Services />}></Route>
             <Route path="/providers" element={<Providers />}></Route>
