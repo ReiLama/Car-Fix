@@ -4,7 +4,8 @@ import ProviderDetails from "./components/Providers/ProviderDetails/ProviderDeta
 import Providers from "./components/Providers/ProviderPage/Providers";
 import Homepage from "./components/Homepage/Homepage";
 import Services from "./components/Services/Services";
-import Login from "./components/Login/Login";
+import Login from "./components/Register/Login/Login";
+import Signup from "./components/Register/Signup/Signup";
 
 function App() {
   return (
@@ -21,10 +22,10 @@ function App() {
             {/* <Route path="/Profile" element={<Profile />}></Route> */}
             {/* <Route path="/Contact" element={<Contact />}></Route> */}
             {/* <Route path="/About" element={<About />}></Route> */}
-            {/* <Route path="/LogIn" element={<LogIn />}></Route> */}
-            {/* <Route path="/Registration" element={<Registration />}></Route> */}
+            <Route path="/Signup" element={<Signup />}></Route>
+            <Route path="/Login" element={<Login />}></Route>
+          
           </Routes>
-          <Login></Login>
     </Router>
   );
 }

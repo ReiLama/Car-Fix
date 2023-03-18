@@ -11,6 +11,7 @@ const Login = () => {
                 display="flex" 
                 flexDirection={"column"} 
                 maxWidth={400} 
+                maxHeight={600}
                 alignItems="center" 
                 justifyContent={"center"}
                 margin="auto"
@@ -25,7 +26,7 @@ const Login = () => {
                  },
                 }}
             >
-                <Typography variant="h2" padding={3} textAlign="center">Login</Typography>
+                <Typography variant="h3" padding={3} textAlign="center">Login</Typography>
                 <TextField margin="normal" type={'text'} variant="outlined" placeholder="Name" />
                 <TextField margin="normal" type={'email'} variant="outlined" placeholder="Email" />
                 <TextField margin="normal" type={'password'}variant="outlined" placeholder="Password"/>
@@ -37,7 +38,7 @@ const Login = () => {
 
             </Box>
         </form>
-     
+    <br></br>
     </div>
     );
     
