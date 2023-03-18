@@ -35,7 +35,7 @@ const ProviderDetails = () => {
         }
     ]);
     const [provider, setProvider] = useState({});
-    const [owner] = useState(true);
+    const [owner] = useState(false);
     const [services] = useState([
         {
             id: 0,
