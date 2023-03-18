@@ -1,10 +1,10 @@
 import { Button } from 'antd';
-import './ServicesStyles.scss';
+import './ProviderDetailsStyles.scss';
 
-const ServiceCard = ({ service }) => {
+const ServiceCardProvider = ({ service }) => {
     return ( 
         <div className="service-card">
-            <h3 className='category'><Button className='category-link' type='link'><b>MECHANICAL</b></Button></h3>
+            <h3 className='category'><Button className='category-link'><b>MECHANICAL</b></Button></h3>
             <div className="img-container">
                 <img src={service.image_url} alt="img" />
             </div>
@@ -21,7 +21,6 @@ const ServiceCard = ({ service }) => {
                 </div>
                 <p>{service.description}</p>
                 <div className="service-buttons">
-                    <Button><b>SHOW PROVIDER</b></Button>
                     <Button type="primary" className='primary'><b>ADD RESERVATION</b></Button>
                 </div>
             </div>
@@ -29,4 +28,4 @@ const ServiceCard = ({ service }) => {
      );
 }
  
-export default ServiceCard;
+export default ServiceCardProvider;
