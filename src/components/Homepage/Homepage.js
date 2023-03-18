@@ -18,7 +18,7 @@ import { styled, alpha } from "@mui/material/styles";
 import ToggleProfileMenu from "./ToggleProfileMenu/ToggleProfileMenu"
 import ToggleMenu from "./ToggleMenu/ToggleMenu";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["Dashboard", "Account", "Profile"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Search = styled("div")(({ theme }) => ({
