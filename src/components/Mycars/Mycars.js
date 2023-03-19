@@ -15,7 +15,7 @@ const CustomCard = styled(Card)(({ theme }) => ({
   boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
   transition: '0.3s',
   '&:hover': {
-    boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)',
+    boxShadow: '0 8px 16px 0 rgba(0,0,0,0.4)',
   },
   
   '& img': {
@@ -82,7 +82,6 @@ function Cars() {
 
   return (
     <div className="App" style={{ padding: '50px' }}>
-      
         <Typography 
         variant="h4" 
         component="h1" 
@@ -109,9 +108,7 @@ function Cars() {
           <form onSubmit={handleSubmit}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
-                <input type="file" id="file" label="Picture" variant="outlined" fullWidth onChange={handlePictureChange} />
-                
-                 
+                <input type="file" id="file" label="Picture" variant="outlined" fullWidth onChange={handlePictureChange} />   
               </Grid>
               <Grid item xs={12}>
                 <TextField label="Name" variant="outlined" fullWidth value={name} onChange={handleNameChange} />
@@ -174,7 +171,6 @@ function Cars() {
     ))}
   </Grid>
 </div>
-
 );
 }
 
