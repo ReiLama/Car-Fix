@@ -10,30 +10,28 @@ const Login = () => {
             <Box 
                 display="flex" 
                 flexDirection={"column"} 
-                maxWidth={400} 
-                maxHeight={600}
+                maxWidth={450} 
                 alignItems="center" 
                 justifyContent={"center"}
                 margin="auto"
-                marginTop={5}
-                padding={3}
-                borderRadius={5}
-                boxShadow={"5px 5px 10px #ccc"} 
+                marginTop={4}
+                padding={2}
+                borderRadius={1}
+                boxShadow={"5px 10px 10px #ccc"} 
                     
                 sx={{
                     ":hover": {
-                        boxShadow:"10px 10px 20px #ccc",
+                        boxShadow:"10px 10px 20px  blue",
                  },
                 }}
             >
-                <Typography variant="h3" padding={3} textAlign="center">Login</Typography>
-                <TextField margin="normal" type={'text'} variant="outlined" placeholder="Name" />
+                <Typography variant="h3" padding={3} textAlign="center">Log In</Typography>
                 <TextField margin="normal" type={'email'} variant="outlined" placeholder="Email" />
                 <TextField margin="normal" type={'password'}variant="outlined" placeholder="Password"/>
 
-                <Button sx={{marginTop:3 ,borderRadius: 3}} variant="contained"  >Login</Button>
+                <Button sx={{marginTop:2}} variant="contained"  >Log in</Button>
 
-                <Button sx={{marginTop:3 ,borderRadius: 3}} >Change to Signup</Button>
+                <Button sx={{marginTop:2}} >Forgot Password</Button>
                 
 
             </Box>
