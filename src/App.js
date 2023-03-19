@@ -4,6 +4,7 @@ import ProviderDetails from "./components/Providers/ProviderDetails";
 import Providers from "./components/Providers/Providers";
 import Homepage from "./components/Homepage/Homepage";
 import AboutUS from "./components/AboutUs/AboutUs";
+import Cars from "./components/Mycars/Mycars";
 
 function App() {
   return (
@@ -17,10 +18,9 @@ function App() {
             {/* <Route path="/reservation/provider/:id" element={<Reservation />}></Route> */}
             {/* <Route path="/MyReservations" element={<MyReservations />}></Route> */}
             {/* <Route path="/Reservation" element={<ReservationDetails />}></Route> */}
-            {/* <Route path="/MyCars" element={<MyCars />}></Route> */}
+             <Route path="/MyCars" element={<Cars />}></Route>
             {/* <Route path="/CarDetails" element={<CarDetails />}></Route> */}
             {/* <Route path="/Profile" element={<Profile />}></Route> */}
-
             {/* <Route path="/Contact" element={<Contact />}></Route> */}
             {/* <Route path="/LogIn" element={<LogIn />}></Route> */}
             {/* <Route path="/Registration" element={<Registration />}></Route> */}
