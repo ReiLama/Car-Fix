@@ -33,6 +33,7 @@ const Signup = () => {
                 <TextField margin="normal" type={'password'}variant="outlined" placeholder="Confirm Password"/>
 
                 <Button sx={{marginTop:2 }} variant="contained"  >Sign UP</Button>
+                <Button sx={{marginTop:2}} > Already have an account </Button>
             
             </Box>
         </form>
