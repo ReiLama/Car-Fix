@@ -1,7 +1,12 @@
+import { PlusOutlined } from '@ant-design/icons';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Button, Divider } from 'antd';
+import { Badge, Button, ConfigProvider, Divider } from 'antd';
+import ServiceCardProvider from './ServiceCardProvider';
 import './ProviderDetailsStyles.scss';
+import CreateProvider from '../../shared/CreateProviderPopup/CreateProvider';
+import CreateService from '../../shared/CreateServicePopup/CreateService';
+
 
 const ProviderDetails = () => {
 
@@ -30,6 +35,128 @@ const ProviderDetails = () => {
         }
     ]);
     const [provider, setProvider] = useState({});
+    const [owner] = useState(false);
+    const [services] = useState([
+        {
+            id: 0,
+            title: "OIL CHNAGE",
+            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
+            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
+            providers_id: 0,
+            price: "$50",
+            category_id: 1
+        },
+        {
+            id: 0,
+            title: "GEAR ADJUST",
+            image_url: "https://www.uti.edu/images/default-source/racetrack-pages/how-an-automotive-transmission-works-from-universal-technical-institute-automotive-program.webp",
+            description: "Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
+            providers_id: 0,
+            price: "$200",
+            category_id: 1
+        },
+        {
+            id: 0,
+            title: "OIL CHNAGE",
+            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
+            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
+            providers_id: 0,
+            price: "$200",
+            category_id: 1
+        },
+        {
+            id: 0,
+            title: "OIL CHNAGE",
+            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
+            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
+            providers_id: 0,
+            price: "$200",
+            category_id: 1
+        },
+        {
+            id: 0,
+            title: "OIL CHNAGE",
+            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
+            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
+            providers_id: 0,
+            price: "$200",
+            category_id: 1
+        },
+        {
+            id: 0,
+            title: "OIL CHNAGE",
+            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
+            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
+            providers_id: 0,
+            price: "$200",
+            category_id: 1
+        },
+        {
+            id: 0,
+            title: "OIL CHNAGE",
+            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
+            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
+            providers_id: 0,
+            price: "$200",
+            category_id: 1
+        },
+        {
+            id: 0,
+            title: "OIL CHNAGE",
+            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
+            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
+            providers_id: 0,
+            price: "$200",
+            category_id: 1
+        },
+        {
+            id: 0,
+            title: "OIL CHNAGE",
+            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
+            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
+            providers_id: 0,
+            price: "$200",
+            category_id: 1
+        },
+        {
+            id: 0,
+            title: "OIL CHNAGE",
+            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
+            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
+            providers_id: 0,
+            price: "$200",
+            category_id: 1
+        },
+        {
+            id: 0,
+            title: "OIL CHNAGE",
+            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
+            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
+            providers_id: 0,
+            price: "$200",
+            category_id: 1
+        }
+    ]);
+    const [city, setCity] = useState("");
+    const [open, setOpen] = useState(false);
+    const [openService, setOpenService] = useState(false);
+    const [category, setCategory] = useState("");
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+
+    const handleClickOpenService = () => {
+        setOpenService(true);
+    };
+    
+      const handleCloseService = () => {
+        setOpenService(false);
+    };
 
     useEffect(()=>{
         setProvider(...providers.filter((pr)=>{
@@ -38,45 +165,50 @@ const ProviderDetails = () => {
     }, [id, providers]);
 
     return ( 
-        <div className="provider-details">
-            <div className="side-details">
-                <img src={provider.image_url} alt="img" />
-                <h1>{provider.name}</h1>
-                <Divider />
-                <h2>{provider.location}</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptatem quis repellat delectus ut.
-                </p>
-                <Divider />
-                <Button type="primary" className="button">Add Reservation</Button>
+        <ConfigProvider
+        theme={{
+        token: {
+            colorPrimary: 'rgb(40, 47, 140)',
+        },
+        }}
+        >
+            <div className="provider-details">
+                <div className="side-details">
+                    <img src={provider.image_url} alt="img" />
+                    <h1>{provider.name}</h1>
+                    <Divider />
+                    <h2>{provider.location}</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Voluptatem quis repellat delectus ut.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Voluptatem quis repellat delectus ut.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Voluptatem quis repellat delectus ut.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Voluptatem quis repellat delectus ut.
+                    </p>
+                    <Divider />
+                    <Button type="primary" className="button">Add Reservation</Button>
+                </div>
+                <div className="services">
+                    <div className="buttons">
+                        {
+                            owner ? 
+                            <Button type="primary" className="top-buttons" onClick={handleClickOpenService}>Add service <PlusOutlined /></Button>
+                            :
+                            <Button type="primary" className="top-buttons" onClick={handleClickOpen}>Create Provider <PlusOutlined /></Button>
+                        }
+                    </div>
+                    <CreateProvider open={open} handleClose={handleClose} city={city} setCity={setCity} />
+                    <CreateService openService={openService} handleCloseService={handleCloseService} category={category} setCategtory={setCategory} />
+                    <Divider><h3>Services <span><Badge count={9} color="rgb(40, 47, 140)" style={{ fontSize: '102%', marginBottom: "2px" }} /></span></h3></Divider>
+                    {
+                        services.map((service)=>{
+                            return <ServiceCardProvider service={service} key={service.id} />
+                        })
+                    }
+                    <Divider />
+                    { owner && <Button type="primary" className="top-buttons" onClick={handleClickOpenService}>Add service <PlusOutlined /></Button> }
+                </div>
             </div>
-            <div className="services">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptatem quis repellat delectus ut. Necessitatibus quo
-                    itaque fuga tempora molestias numquam pariatur maiores doloribus
-                    assumenda. At debitis expedita quod amet eligendi!Lorem Lorem ipsum
-                        dolor sit amet consectetur adipisicing elit. Nam tempora sapiente,
-                         quisquam veritatis, deleniti minima, doloremque quaerat voluptatibus
-                          aut odit numquam corrupti cum et omnis in. Nesciunt praesentium quas sapiente!
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptatem quis repellat delectus ut. Necessitatibus quo
-                    itaque fuga tempora molestias numquam pariatur maiores doloribus
-                    assumenda. At debitis expedita quod amet eligendi!Lorem Lorem ipsum
-                        dolor sit amet consectetur adipisicing elit. Nam tempora sapiente,
-                         quisquam veritatis, deleniti minima, doloremque quaerat voluptatibus
-                          aut odit numquam corrupti cum et omnis in. Nesciunt praesentium quas sapiente!
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptatem quis repellat delectus ut. Necessitatibus quo
-                    itaque fuga tempora molestias numquam pariatur maiores doloribus
-                    assumenda. At debitis expedita quod amet eligendi!Lorem Lorem ipsum
-                        dolor sit amet consectetur adipisicing elit. Nam tempora sapiente,
-                         quisquam veritatis, deleniti minima, doloremque quaerat voluptatibus
-                          aut odit numquam corrupti cum et omnis in. Nesciunt praesentium quas sapiente!
-                </p>
-            </div>
-        </div>
+        </ConfigProvider>
      );
 }
  

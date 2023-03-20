@@ -1,8 +1,7 @@
 import { Button } from 'antd';
-import { Link } from 'react-router-dom';
-import './ServicesStyles.scss';
+import './ProviderDetailsStyles.scss';
 
-const ServiceCard = ({ service }) => {
+const ServiceCardProvider = ({ service }) => {
     return ( 
         <div className="service-card">
             <div className="img-container">
@@ -21,7 +20,6 @@ const ServiceCard = ({ service }) => {
                 </div>
                 <p>{service.description}</p>
                 <div className="service-buttons">
-                    <Button><Link to={`/provider_details/${service.providers_id}`}><b>SHOW PROVIDER</b></Link></Button>
                     <Button type="primary" className='primary'><b>ADD RESERVATION</b></Button>
                 </div>
             </div>
@@ -29,4 +27,4 @@ const ServiceCard = ({ service }) => {
      );
 }
  
-export default ServiceCard;
+export default ServiceCardProvider;

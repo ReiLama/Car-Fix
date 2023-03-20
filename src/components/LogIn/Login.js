@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.scss";
 import { Box, TextField, Typography, Button} from "@mui/material";
 
 
 const Login = () => {
+
+    const [logging, setLogging] = useState(true);
+
     return (
     <div>
         <form>
@@ -25,14 +28,36 @@ const Login = () => {
                  },
                 }}
             >
-                <Typography variant="h2" padding={3} textAlign="center">Login</Typography>
-                <TextField margin="normal" type={'text'} variant="outlined" placeholder="Name" />
+                {
+                    logging ? 
+                    <Typography variant="h2" padding={3} textAlign="center">Login</Typography>
+                    :
+                    <Typography variant="h2" padding={3} textAlign="center">Singup</Typography>
+                }
+                {
+                    logging ? 
+                    <>
+                    </>
+                    :
+                    <>
+                        <TextField margin="normal" type={'text'} variant="outlined" placeholder="Name" />
+                        <TextField margin="normal" type={'text'} variant="outlined" placeholder="Surname" />
+                    </>
+                }
                 <TextField margin="normal" type={'email'} variant="outlined" placeholder="Email" />
                 <TextField margin="normal" type={'password'}variant="outlined" placeholder="Password"/>
-
-                <Button sx={{marginTop:3 ,borderRadius: 3}} variant="contained"  >Login</Button>
-
-                <Button sx={{marginTop:3 ,borderRadius: 3}} >Change to Signup</Button>
+                {
+                    logging ? 
+                    <Button sx={{marginTop:3 ,borderRadius: 3}} variant="contained"  >LogIn</Button>
+                    :
+                    <Button sx={{marginTop:3 ,borderRadius: 3}} variant="contained"  >SingUp</Button>
+                }
+                {
+                    logging ? 
+                    <Button sx={{marginTop:3 ,borderRadius: 3}} onClick={()=> setLogging(false)}  >Change to SignUp</Button>
+                    :
+                    <Button sx={{marginTop:3 ,borderRadius: 3}} onClick={()=> setLogging(true)} >Change to LogIn</Button>
+                }
                 
 
             </Box>

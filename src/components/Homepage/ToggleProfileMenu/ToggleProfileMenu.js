@@ -6,63 +6,19 @@ import {
   IconButton,
   List,
   ListItem,
-  ListItemIcon,
   ListItemText,
   Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import InputBase from "@mui/material/InputBase";
-import { styled, alpha } from "@mui/material/styles";
-import SearchIcon from "@mui/icons-material/Search";
+import { Link } from "react-router-dom";
 
 const categories = [
-  { id: "1", name: "My Cars", icon: <ListItemIcon>icon1</ListItemIcon> },
-  { id: "2", name: "Reservations", icon: <ListItemIcon>icon2</ListItemIcon> },
-  { id: "3", name: "Providers", icon: <ListItemIcon>icon3</ListItemIcon> },
-  { id: "4", name: "Log Out", icon: <ListItemIcon>icon4</ListItemIcon> },
+  { id: "3", name: "Profile", link: "/profile" },
+  { id: "1", name: "My Cars", link: "/myCars" },
+  { id: "2", name: "Reservations", link: "/reservations" },
+  { id: "4", name: "Log Out", link: "/" }
 ];
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(1),
-    width: "auto",
-  },
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      width: "12ch",
-      "&:focus": {
-        width: "20ch",
-      },
-    },
-  },
-}));
 
 const ToggleMenu = () => {
   const [open, setOpen] = useState(false);
@@ -128,21 +84,11 @@ const ToggleMenu = () => {
                 backgroundColor: "rgb(40, 47, 140)",
               }}
             >
-              <Search>
-                <SearchIconWrapper>
-                  <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase
-                  placeholder="Search…"
-                  inputProps={{ "aria-label": "search" }}
-                />
-              </Search>
             </Box>
 
-            {categories.map(({ id, name, icon }) => (
+            {categories.map(({ id, name, link }) => (
               <ListItem key={id} button onClick={handleCloseMenu}>
-                {icon}
-                <ListItemText primary={name} />
+                <Link style={{ textDecoration: "none", color: "black" }} to={link}><ListItemText primary={name} /></Link>
               </ListItem>
             ))}
           </List>
