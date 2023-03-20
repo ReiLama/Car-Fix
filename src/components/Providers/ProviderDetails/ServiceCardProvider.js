@@ -4,7 +4,6 @@ import './ProviderDetailsStyles.scss';
 const ServiceCardProvider = ({ service }) => {
     return ( 
         <div className="service-card">
-            <h3 className='category'><Button className='category-link'><b>MECHANICAL</b></Button></h3>
             <div className="img-container">
                 <img src={service.image_url} alt="img" />
             </div>

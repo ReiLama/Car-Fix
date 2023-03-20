@@ -4,7 +4,7 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl,
 const CreateService = ({ openService, handleCloseService, category, setCategory }) => {
     return ( 
         <Dialog open={openService} onClose={handleCloseService}>
-            <DialogTitle>Create a new provider</DialogTitle>
+            <DialogTitle>Create a new service</DialogTitle>
             <DialogContent>
                 <form>
                     <Grid container spacing={2}>
@@ -34,9 +34,9 @@ const CreateService = ({ openService, handleCloseService, category, setCategory 
                                     label="Category"
                                     onChange={(e)=> setCategory(e.target.value)}
                                 >
-                                    <MenuItem value={10}>Mechanic</MenuItem>
-                                    <MenuItem value={20}>Hydraulic</MenuItem>
-                                    <MenuItem value={30}>Electronic</MenuItem>
+                                    <MenuItem value={"Mechanic"}>Mechanic</MenuItem>
+                                    <MenuItem value={"Hydraulic"}>Hydraulic</MenuItem>
+                                    <MenuItem value={"Electronic"}>Electronic</MenuItem>
                                 </Select>
                             </FormControl>
                         </Grid>

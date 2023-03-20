@@ -191,9 +191,9 @@ const ProviderDetails = () => {
                     <div className="buttons">
                         {
                             owner ? 
-                            <Button type="primary" style={{ fontSize: "18px", height: "100%" }} onClick={handleClickOpenService}>Add service <PlusOutlined /></Button>
+                            <Button type="primary" className="top-buttons" onClick={handleClickOpenService}>Add service <PlusOutlined /></Button>
                             :
-                            <Button type="primary" style={{ fontSize: "18px", height: "100%" }} onClick={handleClickOpen}>Create Provider <PlusOutlined /></Button>
+                            <Button type="primary" className="top-buttons" onClick={handleClickOpen}>Create Provider <PlusOutlined /></Button>
                         }
                     </div>
                     <CreateProvider open={open} handleClose={handleClose} city={city} setCity={setCity} />
@@ -204,7 +204,8 @@ const ProviderDetails = () => {
                             return <ServiceCardProvider service={service} key={service.id} />
                         })
                     }
-                    { owner && <Button type="primary" style={{ fontSize: "15px", marginTop: "20px" }}>Add service <PlusOutlined /></Button> }
+                    <Divider />
+                    { owner && <Button type="primary" className="top-buttons" onClick={handleClickOpenService}>Add service <PlusOutlined /></Button> }
                 </div>
             </div>
         </ConfigProvider>
