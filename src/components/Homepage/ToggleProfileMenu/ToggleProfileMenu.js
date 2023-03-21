@@ -14,9 +14,10 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 
 const categories = [
-  { id: "3", name: "Providers", link: "/providers" },
-  { id: "3", name: "About", link: "/about" },
-  { id: "3", name: "Contact", link: "/contact" }
+  { id: "3", name: "Profile", link: "/profile" },
+  { id: "1", name: "My Cars", link: "/myCars" },
+  { id: "2", name: "Reservations", link: "/reservations" },
+  { id: "4", name: "Log Out", link: "/" }
 ];
 
 const ToggleMenu = () => {
@@ -76,14 +77,15 @@ const ToggleMenu = () => {
             </IconButton>
           </Box>
 
-          <Box
-            sx={{
-              borderBottom: "1px solid grey",
-              backgroundColor: "rgb(40, 47, 140)",
-            }}
-          >
-          </Box>
           <List>
+            <Box
+              sx={{
+                borderBottom: "1px solid grey",
+                backgroundColor: "rgb(40, 47, 140)",
+              }}
+            >
+            </Box>
+
             {categories.map(({ id, name, link }) => (
               <ListItem key={id} button onClick={handleCloseMenu}>
                 <Link style={{ textDecoration: "none", color: "black" }} to={link}><ListItemText primary={name} /></Link>

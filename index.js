@@ -1,0 +1,122 @@
+const express = require('express');
+const { LocalStorage } = require('node-localstorage');
+localStorage = new LocalStorage('./scratch');
+const initial_services = require('./initialData/services');
+const LS = require('./helpers/localStorage');
+
+const app = express()
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+const port = 5001;
+
+// this is important to disable cors
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+let services = LS.all('services');
+
+console.log(`produktet ne local storage ne momentin qe serveri ndizet: ${services.length}`)
+
+if (services.length == 0) {
+  LS.addALL('services', initial_services);
+}
+
+//SERVICES/////////////
+
+app.get('/api/services', (req, res) => {
+  res.json({
+    "status": "success",
+    "data": LS.all('services')
+  })
+})
+
+app.get('/api/services/:serviceId', (req, res) => {
+  res.json({
+    "status": "success",
+    "data": LS.find('services', req.params.serviceId)
+  })
+})
+
+app.get('/api/provider_services/:providerId', (req, res) => {
+  res.json({
+    "status": "success",
+    "data": LS.findGroup('services', req.params.providerId)
+  })
+})
+
+app.post('/api/services', (req, res) => {
+  const created_service = LS.create('services', req.body);
+  res.json({
+    "status": "success",
+    "data": created_service
+  })
+})
+
+app.put('/api/services/:serviceId', (req, res) => {
+  const edited_service = LS.edit('services', req.body, req.params.serviceId);
+  res.json({
+    "status": "success",
+    "data": edited_service
+  })
+})
+
+app.delete('/api/services/:serviceId', (req, res) => {
+  const services = LS.delete('services', req.params.serviceId);
+  res.json({
+    "status": "success",
+    "data": services
+  })
+})
+
+//PROVIDERS///////////
+
+app.get('/api/providers', (req, res) => {
+  res.json({
+    "status": "success",
+    "data": LS.all('providers')
+  })
+})
+
+app.get('/api/providers/:providerId', (req, res) => {
+  res.json({
+    "status": "success",
+    "data": LS.find('providers', req.params.providerId)
+  })
+})
+
+app.post('/api/providers', (req, res) => {
+  const created_provider = LS.create('providers', req.body);
+  res.json({
+    "status": "success",
+    "data": created_provider
+  })
+})
+
+app.put('/api/providers/:providerId', (req, res) => {
+  const edited_provider = LS.edit('providers', req.body, req.params.providerId);
+  res.json({
+    "status": "success",
+    "data": edited_provider
+  })
+})
+
+app.delete('/api/providers/:providerId', (req, res) => {
+  const providers = LS.delete('providers', req.params.providerId);
+  res.json({
+    "status": "success",
+    "data": providers
+  })
+})
+
+////////////////////
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
