@@ -5,6 +5,7 @@ import Providers from "./components/Providers/ProviderPage/Providers";
 import Homepage from "./components/Homepage/Homepage";
 import Services from "./components/Services/Services";
 import ProfileMenu from "./components/Homepage/ProfileMenu/ProfileMenu";
+import Login from "./components/LogIn/Login";
 
 function App() {
   return (
@@ -13,19 +14,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Services />}></Route>
         <Route path="/providers" element={<Providers />}></Route>
-        <Route
-          path="/provider_details/:id"
-          element={<ProviderDetails />}
-        ></Route>
+        <Route path="/provider_details/:id" element={<ProviderDetails />}></Route>
         <Route path="/profile" element={<ProfileMenu />}></Route>
-        {/* <Route path="/reservation/provider/:id" element={<Reservation />}></Route> */}
         {/* <Route path="/MyReservations" element={<MyReservations />}></Route> */}
-        {/* <Route path="/Reservation" element={<ReservationDetails />}></Route> */}
         {/* <Route path="/MyCars" element={<MyCars />}></Route> */}
-        {/* <Route path="/Profile" element={<Profile />}></Route> */}
         {/* <Route path="/Contact" element={<Contact />}></Route> */}
         {/* <Route path="/About" element={<About />}></Route> */}
-        {/* <Route path="/LogIn" element={<LogIn />}></Route> */}
+        <Route path="/Login" element={<Login />}></Route>
       </Routes>
     </Router>
   );

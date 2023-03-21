@@ -37,10 +37,10 @@ const Services = () => {
     const [ascending, setAscending] = useState(false);
 
     useEffect(()=>{
-        fetch("http://localhost:5000/api/services")
+        fetch("http://localhost:5001/api/services")
         .then((res) => res.json())
         .then((data) => {
-            setServices(data.data)
+          setServices(data.data)
         })
     }, []);
 

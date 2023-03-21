@@ -11,136 +11,29 @@ import CreateService from '../../shared/CreateServicePopup/CreateService';
 const ProviderDetails = () => {
 
     const { id } = useParams();
-    const [providers] = useState([
-        {
-            id: 0,
-            location: "Durres, Plazh",
-            image_url: "https://www.floridacareercollege.edu/wp-content/uploads/sites/4/2020/08/12-Reasons-to-Become-an-Automotive-Mechanic-Florida-Career-College.png",
-            name: "Mekanik Tiku",
-            bio: "Rregullojm makina"
-        },
-        {
-            id: 1,
-            location: "Durres, Shkozet",
-            image_url: "https://okazion.online/uploads/2021/08/12/852_1628757655.jpg",
-            name: "Emili Elektroauto",
-            bio: "Rregullojm makina"
-        },
-        {
-            id: 2,
-            location: "Durres, Qender",
-            image_url: "https://performanceautospecialists.com/wp-content/uploads/2019/05/46212975_m.jpg",
-            name: "Oficina Shpetimi",
-            bio: "Rregullojm makina"
-        }
-    ]);
     const [provider, setProvider] = useState({});
     const [owner] = useState(false);
-    const [services] = useState([
-        {
-            id: 0,
-            title: "OIL CHNAGE",
-            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
-            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
-            providers_id: 0,
-            price: "$50",
-            category_id: 1
-        },
-        {
-            id: 0,
-            title: "GEAR ADJUST",
-            image_url: "https://www.uti.edu/images/default-source/racetrack-pages/how-an-automotive-transmission-works-from-universal-technical-institute-automotive-program.webp",
-            description: "Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
-            providers_id: 0,
-            price: "$200",
-            category_id: 1
-        },
-        {
-            id: 0,
-            title: "OIL CHNAGE",
-            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
-            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
-            providers_id: 0,
-            price: "$200",
-            category_id: 1
-        },
-        {
-            id: 0,
-            title: "OIL CHNAGE",
-            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
-            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
-            providers_id: 0,
-            price: "$200",
-            category_id: 1
-        },
-        {
-            id: 0,
-            title: "OIL CHNAGE",
-            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
-            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
-            providers_id: 0,
-            price: "$200",
-            category_id: 1
-        },
-        {
-            id: 0,
-            title: "OIL CHNAGE",
-            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
-            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
-            providers_id: 0,
-            price: "$200",
-            category_id: 1
-        },
-        {
-            id: 0,
-            title: "OIL CHNAGE",
-            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
-            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
-            providers_id: 0,
-            price: "$200",
-            category_id: 1
-        },
-        {
-            id: 0,
-            title: "OIL CHNAGE",
-            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
-            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
-            providers_id: 0,
-            price: "$200",
-            category_id: 1
-        },
-        {
-            id: 0,
-            title: "OIL CHNAGE",
-            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
-            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
-            providers_id: 0,
-            price: "$200",
-            category_id: 1
-        },
-        {
-            id: 0,
-            title: "OIL CHNAGE",
-            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
-            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
-            providers_id: 0,
-            price: "$200",
-            category_id: 1
-        },
-        {
-            id: 0,
-            title: "OIL CHNAGE",
-            image_url: "https://parkers-images.bauersecure.com/wp-images/177357/gettyimages-adding-engine-oil.jpg",
-            description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum.",
-            providers_id: 0,
-            price: "$200",
-            category_id: 1
-        }
-    ]);
+    const [services, setServices] = useState([]);
     const [city, setCity] = useState("");
     const [open, setOpen] = useState(false);
     const [openService, setOpenService] = useState(false);
     const [category, setCategory] = useState("");
+
+    useEffect(()=>{
+        fetch("http://localhost:5001/api/providers/" + id)
+        .then((res)=> res.json())
+        .then((data)=> {
+            setProvider(data.data)
+        })
+    }, [provider, id]);
+
+    useEffect(()=>{
+        fetch("http://localhost:5001/api/provider_services/" + id)
+        .then((res)=> res.json())
+        .then((data)=> {
+            setServices(data.data)
+        })
+    }, [services, id])
 
     const handleClickOpen = () => {
       setOpen(true);
@@ -158,12 +51,6 @@ const ProviderDetails = () => {
         setOpenService(false);
     };
 
-    useEffect(()=>{
-        setProvider(...providers.filter((pr)=>{
-            return pr.id === Number(id)
-        }));
-    }, [id, providers]);
-
     return ( 
         <ConfigProvider
         theme={{
@@ -178,12 +65,7 @@ const ProviderDetails = () => {
                     <h1>{provider.name}</h1>
                     <Divider />
                     <h2>{provider.location}</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptatem quis repellat delectus ut.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptatem quis repellat delectus ut.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptatem quis repellat delectus ut.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptatem quis repellat delectus ut.
-                    </p>
+                    <p>{provider.bio}</p>
                     <Divider />
                     <Button type="primary" className="button">Add Reservation</Button>
                 </div>
@@ -198,7 +80,7 @@ const ProviderDetails = () => {
                     </div>
                     <CreateProvider open={open} handleClose={handleClose} city={city} setCity={setCity} />
                     <CreateService openService={openService} handleCloseService={handleCloseService} category={category} setCategtory={setCategory} />
-                    <Divider><h3>Services <span><Badge count={9} color="rgb(40, 47, 140)" style={{ fontSize: '102%', marginBottom: "2px" }} /></span></h3></Divider>
+                    <Divider><h3>Services <span><Badge count={services.length} color="rgb(40, 47, 140)" style={{ fontSize: '102%', marginBottom: "2px" }} /></span></h3></Divider>
                     {
                         services.map((service)=>{
                             return <ServiceCardProvider service={service} key={service.id} />
