@@ -1,48 +1,35 @@
 import { PlusOutlined } from '@ant-design/icons';
-import { Divider, Input, ConfigProvider, Dropdown, Button } from 'antd';
+import { Divider, Input, ConfigProvider, Button } from 'antd';
 import React, { useEffect, useState } from 'react';
 import CreateProvider from '../../shared/CreateProviderPopup/CreateProvider';
 import ProviderCard from './ProviderCard';
 import './ProviderStyles.scss';
 
-const items = [
-    {
-      key: '1',
-      label: (
-        <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-          1st menu item
-        </a>
-      ),
-    },
-    {
-      key: '2',
-      label: (
-        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-          2nd menu item
-        </a>
-      ),
-    },
-    {
-      key: '3',
-      label: (
-        <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-          3rd menu item
-        </a>
-      ),
-    },
-  ];
-
 const Providers = () => {
 
+    const [location, setLocation] = useState("");
     const [providers, setProviders] = useState([]);
-    const [city, setCity] = useState("");
     const [open, setOpen] = useState(false);
 
     useEffect(()=>{
       fetch("http://localhost:5001/api/providers")
       .then((res)=> res.json())
       .then((data)=> setProviders(data.data))
-    }, [providers])
+    }, []);
+
+    const filterSearch = () => {
+      fetch("http://localhost:5001/api/providers")
+      .then((res) => res.json())
+      .then((data) => {
+        const tempSearch = location.toLocaleLowerCase()
+        const tempPro = [...data.data];
+        const newProviders = tempPro.filter((pro)=> {
+          let temp = pro.location.toLocaleLowerCase()
+          return temp.includes(tempSearch)
+        });
+        setProviders(newProviders)
+      })
+    }
 
     const handleClickOpen = () => {
       setOpen(true);
@@ -63,12 +50,18 @@ const Providers = () => {
                 <div className="providers-container">
                     <div className="filter">
                         <Button type="primary" className='create-button' onClick={handleClickOpen} >Create Provider <PlusOutlined /></Button>
-                        <CreateProvider open={open} handleClose={handleClose} city={city} setCity={setCity} />
+                        <CreateProvider open={open} handleClose={handleClose} />
                         <div className='filter-container'>
-                            <Dropdown menu={{items,}} placement="bottom" arrow>
-                                <Button>City</Button>
-                            </Dropdown>
-                            <Input.Search size="large" placeholder="Search for location..." enterButton  className="search" />
+                            <Input.Search 
+                              size="large" 
+                              placeholder="Search for location..." 
+                              enterButton  
+                              className="search"
+                              onChange={(e) => {
+                                setLocation(e.target.value)
+                              }}
+                              onSearch={filterSearch}
+                            />
                         </div>
                         <div></div>
                     </div>

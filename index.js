@@ -3,11 +3,28 @@ const { LocalStorage } = require('node-localstorage');
 localStorage = new LocalStorage('./scratch');
 const initial_services = require('./initialData/services');
 const LS = require('./helpers/localStorage');
+const path = require('path');
+const app = express();
+const port = 5001;
+const cors = require('cors');
 
-const app = express()
+app.use(cors());
+app.use('/static', express.static('images'));
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-const port = 5001;
+
+
+const multer = require('multer');
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './images')
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname)
+  }
+});
+
+const upload = multer({storage: storage})
 
 // this is important to disable cors
 app.use((req, res, next) => {
@@ -22,7 +39,7 @@ app.get('/', (req, res) => {
 
 let services = LS.all('services');
 
-console.log(`produktet ne local storage ne momentin qe serveri ndizet: ${services.length}`)
+console.log(`serviset ne local storage ne momentin qe serveri ndizet: ${services.length}`)
 
 if (services.length == 0) {
   LS.addALL('services', initial_services);
@@ -91,7 +108,14 @@ app.get('/api/providers/:providerId', (req, res) => {
   })
 })
 
-app.post('/api/providers', (req, res) => {
+app.post('/api/providers/images', upload.single('image') , (req, res) => {
+  res.json({
+    "status": "success",
+    "data": req.body
+  })
+})
+
+app.post('/api/providers', upload.single('image') , (req, res) => {
   const created_provider = LS.create('providers', req.body);
   res.json({
     "status": "success",
@@ -108,7 +132,7 @@ app.put('/api/providers/:providerId', (req, res) => {
 })
 
 app.delete('/api/providers/:providerId', (req, res) => {
-  const providers = LS.delete('providers', req.params.providerId);
+  const providers = LS.deleteProvider('providers', req.params.providerId, 'services');
   res.json({
     "status": "success",
     "data": providers
