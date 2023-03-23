@@ -9,13 +9,6 @@ const LS = {
    * @returns array
    */
   all: (model) => {
-
-    const items = JSON.parse(localStorage.getItem(model) || '[]');
-    items.forEach((item, index)=>{
-      item.id = index
-    });
-    localStorage.setItem(model, JSON.stringify(items))
-
     return JSON.parse(localStorage.getItem(model) || '[]');
   },
 
@@ -70,8 +63,6 @@ const LS = {
   create: (model, data) => {
     let items = LS.all(model);
 
-    data.id = items.lenght;
-
     items.push(data);
     
     LS.addALL(model, items);
@@ -88,11 +79,11 @@ const LS = {
   edit: (model, data, id) => {
     let items = LS.all(model);
 
-    data.id = id;
+    let newItems = items.map((item)=>{
+      return item.id == id ? data : item
+    });
 
-    items.splice(id, 1, data)
-    
-    LS.addALL(model, items);
+    LS.addALL(model, newItems);
 
     return data;
   },
@@ -105,11 +96,39 @@ const LS = {
   delete: (model, id) => {
     let items = LS.all(model);
 
-    items.splice(id, 1)
+    let newItems = items.filter((item)=>{
+      return item.id != id
+    });
     
-    LS.addALL(model, items);
+    LS.addALL(model, newItems);
 
-    return items;
+    return newItems;
+  },
+
+  /**
+   * 
+   * @param {string} providers
+   * @param {number} id
+   * @param {string} services
+   */
+   deleteProvider: (providers, id, services) => {
+    let items = LS.all(providers);
+
+    let newItems = items.filter((item)=>{
+      return item.id != id
+    });
+    
+    LS.addALL(providers, newItems);
+
+    let tempSer = LS.all(services);
+
+    let newServices = tempSer.filter((ser)=>{
+      return ser.providers_id != id
+    });
+
+    LS.addALL(services, newServices);
+
+    return newItems;
   }
 }
 
