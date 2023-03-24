@@ -6,6 +6,7 @@ import Homepage from "./components/Homepage/Homepage";
 import Services from "./components/Services/Services";
 import Login from "./components/Register/Login/Login";
 import Signup from "./components/Register/Signup/Signup";
+import Forgot from "./components/Register/Forgot/Forgot";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             {/* <Route path="/About" element={<About />}></Route> */}
             <Route path="/Signup" element={<Signup />}></Route>
             <Route path="/Login" element={<Login />}></Route>
+            <Route path="/Forgot" element={<Forgot />}></Route>
           
           </Routes>
     </Router>
