@@ -57,13 +57,13 @@ const CreateProvider = ({ open, handleClose }) => {
                                 </Button>
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField value={name} onChange={e => setName(e.target.value)} id="outlined-basic" label="Name" variant="outlined" fullWidth />
+                                <TextField value={name} onChange={e => setName(e.target.value[25])} id="outlined-basic" label="Name" variant="outlined" fullWidth />
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField value={bio} onChange={e => setBio(e.target.value)} id="outlined-basic" label="Bio" variant="outlined" fullWidth />
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField value={location} onChange={e => setLocation(e.target.value)} id="outlined-basic" label="Location" variant="outlined" fullWidth />
+                                <TextField value={location} onChange={e => setLocation(e.target.value[15])} id="outlined-basic" label="Location" variant="outlined" fullWidth />
                             </Grid>
                         </Grid>
                 </DialogContent>

@@ -56,7 +56,7 @@ const CreateService = ({ openService, handleCloseService, id }) => {
                                 </Button>
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField value={title} onChange={e => setTitle(e.target.value)} id="outlined-basic" label="Title" variant="outlined" fullWidth />
+                                <TextField value={title} onChange={e => setTitle(e.target.value[20])} id="outlined-basic" label="Title" variant="outlined" fullWidth />
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField value={desc} onChange={e => setDesc(e.target.value)} id="outlined-basic" label="Description" variant="outlined" fullWidth />

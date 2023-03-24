@@ -3,7 +3,6 @@ const { LocalStorage } = require('node-localstorage');
 localStorage = new LocalStorage('./scratch');
 const initial_services = require('./initialData/services');
 const LS = require('./helpers/localStorage');
-const path = require('path');
 const app = express();
 const port = 5001;
 const cors = require('cors');
