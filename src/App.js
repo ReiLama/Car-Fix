@@ -21,9 +21,8 @@ function App() {
         {/* <Route path="/MyReservations" element={<MyReservations />}></Route> */}
          <Route path="/MyCars" element={<Cars />}></Route>
         {/* <Route path="/Contact" element={<Contact />}></Route> */}
-        {/* <Route path="/About" element={<About />}></Route> */}
         <Route path="/Login" element={<Login />}></Route>
-            <Route path="/aboutus" element={<AboutUS />}></Route>
+        <Route path="/aboutus" element={<AboutUS />}></Route>
       </Routes>
     </Router>
   );
