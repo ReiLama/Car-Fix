@@ -67,7 +67,7 @@ const Providers = () => {
                     </div>
                     <Divider />
                     {
-                      providers.lenght < 1 ? 
+                      providers.length !== 0 ? 
                       providers.map((provider)=>{
                           return <ProviderCard provider={provider} key={provider.id} />
                       })
