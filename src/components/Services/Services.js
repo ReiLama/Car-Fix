@@ -4,35 +4,9 @@ import { useEffect, useState } from "react";
 import ServiceCard from './ServiceCard';
 import './ServicesStyles.scss';
 
-const items = [
-    {
-      key: '1',
-      label: (
-        <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-          1st menu item
-        </a>
-      ),
-    },
-    {
-      key: '2',
-      label: (
-        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-          2nd menu item
-        </a>
-      ),
-    },
-    {
-      key: '3',
-      label: (
-        <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-          3rd menu item
-        </a>
-      ),
-    },
-];
-
 const Services = () => {
 
+    const [search, setSearch] = useState("");
     const [services, setServices] = useState([]);
     const [ascending, setAscending] = useState(false);
 
@@ -43,6 +17,38 @@ const Services = () => {
           setServices(data.data)
         })
     }, []);
+
+    const filterSearch = () => {
+      fetch("http://localhost:5001/api/services")
+      .then((res) => res.json())
+      .then((data) => {
+        const tempSearch = search.toLocaleLowerCase()
+        const tempSer = [...data.data];
+        const newServices = tempSer.filter((ser)=> {
+          let temp = ser.title.toLocaleLowerCase()
+          return temp.includes(tempSearch)
+        });
+        setServices(newServices)
+      })
+    }
+
+    const sortDescending = () => {
+      const tempSer = [...services];
+        tempSer.sort((a, b)=>{
+          return b.price - a.price
+        });
+        setServices(tempSer);
+        setAscending(true)
+    }
+
+    const sortAscending = () => {
+      const tempSer = [...services];
+        tempSer.sort((a, b)=>{
+          return a.price - b.price
+        });
+        setServices(tempSer);
+        setAscending(false)
+    }
 
     return ( 
         <div className="services">
@@ -56,22 +62,21 @@ const Services = () => {
                 <div className="filter-options">
                     {
                     ascending ? 
-                    <SortDescendingOutlined type="message" style={{ fontSize: '150%' }} theme="outlined" onClick={()=>{setAscending(!ascending)}} /> 
-                    : 
-                    <SortAscendingOutlined type="message" style={{ fontSize: '150%' }} theme="outlined" onClick={()=>{setAscending(!ascending)}} />
+                    <SortAscendingOutlined type="message" style={{ fontSize: '150%' }} theme="outlined" onClick={sortAscending} />
+                    :
+                    <SortDescendingOutlined type="message" style={{ fontSize: '150%' }} theme="outlined" onClick={sortDescending} />
                     }
                     <Divider type="vertical" />
-                    <Dropdown
-                    menu={{
-                        items,
-                    }}
-                    placement="bottom"
-                    arrow
-                    >
-                        <Button>City</Button>
-                    </Dropdown>
-                    <Divider type="vertical" />
-                    <Input.Search size="large" placeholder="Search for services..." enterButton  className="search" />
+                    <Input.Search
+                      size="large" 
+                      placeholder="Search for services..." 
+                      enterButton  className="search"
+                      value={search}
+                      onChange={(e) => {
+                        setSearch(e.target.value)
+                      }}
+                      onSearch={filterSearch}
+                    />
                 </div>
                 <Divider />
                 {

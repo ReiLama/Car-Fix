@@ -1,8 +1,20 @@
 import { Button } from 'antd';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ServicesStyles.scss';
 
 const ServiceCard = ({ service }) => {
+
+    const [provider, setProvider] = useState({});
+
+    useEffect(()=>{
+        fetch("http://localhost:5001/api/providers/" + service.providers_id)
+        .then((res)=> res.json())
+        .then((data)=> {
+            setProvider(data.data)
+        })
+    }, [service]);
+
     return ( 
         <div className="service-card">
             <div className="img-container">
@@ -12,11 +24,11 @@ const ServiceCard = ({ service }) => {
                 <div className="service-details">
                     <div className="service-info">
                         <h3>{service.title}</h3>
-                        <h3>{service.price}</h3>
+                        <h3>${service.price}</h3>
                     </div>
                     <div className="provider-info">
-                        <h3>Emili elektroauto</h3>
-                        <h3>Durres, Shkozet</h3>
+                        <h3>{provider.name}</h3>
+                        <h3>{provider.location}</h3>
                     </div>
                 </div>
                 <p>{service.description}</p>

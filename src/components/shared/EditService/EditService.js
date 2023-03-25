@@ -1,15 +1,28 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Grid, InputAdornment, InputLabel, OutlinedInput, TextField } from "@mui/material";
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
-const CreateService = ({ openService, handleCloseService, id }) => {
+const EditService = ({ openServiceEdit, handleCloseServiceEdit, id }) => {
 
+    const [service, setService] = useState({});
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
     const [price, setPrice] = useState(null);
     const [image, setImage] = useState("");
 
+    useLayoutEffect(()=>{
+        fetch("http://localhost:5001/api/services/" + id)
+        .then((res) => res.json())
+        .then((data) => {
+            setService(data.data);
+            setTitle(service.title);
+            setDesc(service.description);
+            setPrice(service.price);
+            setImage(service.image_url)
+        })
+    }, [openServiceEdit]);
+
     const fileOnchange = (e) => {
-        setImage(e.target.files[0].name);
+        setImage("http://localhost:5001/static/" + e.target.files[0].name);
         let formData = new FormData();
         formData.append('image', e.target.files[0])
 
@@ -22,31 +35,28 @@ const CreateService = ({ openService, handleCloseService, id }) => {
     };
 
     const handleSubmit = () => {
-        const url = `http://localhost:5001/static/${image}`;
         setPrice(Number(price));
         const json = {
+            ...service,
             title: title,
-            image_url: url,
+            image_url: image,
             description: desc,
-            providers_id: id,
-            price: price,
-            id: Math.floor((Math.random() * 100000000))
+            price: price
         };
-        fetch("http://localhost:5001/api/services", {
-            method: "post",
+        fetch("http://localhost:5001/api/services/" + id, {
+            method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(json)
-            
         })
         .then(res => res.json())
         .then(resBody => console.log(resBody))
-        handleCloseService()
+        handleCloseServiceEdit()
     };
 
     return ( 
-        <Dialog open={openService} onClose={handleCloseService}>
+        <Dialog open={openServiceEdit} onClose={handleCloseServiceEdit}>
             <form onSubmit={handleSubmit}>
-                <DialogTitle>Create a new service</DialogTitle>
+                <DialogTitle>Edit service</DialogTitle>
                 <DialogContent>
                         <Grid container spacing={2}>
                             <Grid item xs={12}>
@@ -56,10 +66,10 @@ const CreateService = ({ openService, handleCloseService, id }) => {
                                 </Button>
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField value={title} onChange={e => setTitle(e.target.value[20])} id="outlined-basic" label="Title" variant="outlined" fullWidth />
+                                <TextField value={title} onChange={e => setTitle(e.target.value)} id="outlined-basic" variant="outlined" fullWidth />
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField value={desc} onChange={e => setDesc(e.target.value)} id="outlined-basic" label="Description" variant="outlined" fullWidth />
+                                <TextField value={desc} onChange={e => setDesc(e.target.value)} id="outlined-basic" variant="outlined" fullWidth />
                             </Grid>
                             <Grid item xs={12}>
                                 <FormControl fullWidth>
@@ -75,7 +85,7 @@ const CreateService = ({ openService, handleCloseService, id }) => {
                         </Grid>
                 </DialogContent>
                 <DialogActions>
-                <Button style={{ color: "#282F66" }} onClick={handleCloseService}>Cancel</Button>
+                <Button style={{ color: "#282F66" }} onClick={handleCloseServiceEdit}>Cancel</Button>
                 <Button type="submit" style={{ color: "#282F66" }} >Save</Button>
                 </DialogActions>
             </form>
@@ -83,4 +93,4 @@ const CreateService = ({ openService, handleCloseService, id }) => {
      );
 }
  
-export default CreateService;
+export default EditService;
