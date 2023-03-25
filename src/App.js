@@ -4,7 +4,8 @@ import ProviderDetails from "./components/Providers/ProviderDetails/ProviderDeta
 import Providers from "./components/Providers/ProviderPage/Providers";
 import Homepage from "./components/Homepage/Homepage";
 import Services from "./components/Services/Services";
-import Login from "./components/Login/Login";
+//import Login from "./components/Login/Login";
+import Reservation from "./components/Reservation/reservation.js";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
             {/* <Route path="/LogIn" element={<LogIn />}></Route> */}
             {/* <Route path="/Registration" element={<Registration />}></Route> */}
           </Routes>
-          <Login></Login>
+          <Reservation></Reservation>
     </Router>
   );
 }

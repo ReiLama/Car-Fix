@@ -1,0 +1,22 @@
+@media screen and (min-width: 900px){
+    #button{
+    margin-left: 110px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    }
+}
+
+@media screen and (max-width: 640px){
+    #button{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    }
+}
+
+#but{
+    height: 55px;
+    width: 300px;
+    border-radius: 7px;
+}
