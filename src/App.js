@@ -6,8 +6,10 @@ import Homepage from "./components/Homepage/Homepage";
 import AboutUS from "./components/AboutUs/AboutUs";
 import Cars from "./components/Mycars/Mycars";
 import Services from "./components/Services/Services";
+import Login from "./components/Register/Login/Login";
+import Signup from "./components/Register/Signup/Signup";
+import Forgot from "./components/Register/Forgot/Forgot";
 import ProfileMenu from "./components/Homepage/ProfileMenu/ProfileMenu";
-import Login from "./components/LogIn/Login";
 
 function App() {
   return (
@@ -21,7 +23,9 @@ function App() {
         {/* <Route path="/MyReservations" element={<MyReservations />}></Route> */}
         <Route path="/MyCars" element={<Cars />}></Route>
         {/* <Route path="/Contact" element={<Contact />}></Route> */}
+        <Route path="/Signup" element={<Signup />}></Route>
         <Route path="/Login" element={<Login />}></Route>
+        <Route path="/Forgot" element={<Forgot />}></Route>
         <Route path="/aboutus" element={<AboutUS />}></Route>
       </Routes>
     </Router>
