@@ -23,7 +23,7 @@ const pages = [
   },
   {
     name: "About",
-    link: "/about"
+    link: "/aboutus"
   },
   {
     name: "Contact",
