@@ -1,11 +1,13 @@
 import React from "react";
 import { Container, Button, TextField } from "@mui/material";
 import "./contact-form.css";
+import mapimg from "../image/Googlemap-img.jpg";
+import { display } from "@mui/system";
 
 export default function ContactForm() {
   return (
     <Container>
-      <h1>Contact us</h1>
+      <h1>Contact us!</h1>
       <p>
         Please fill all the required information, and we will get back to you as
         soon as possible!
@@ -47,9 +49,10 @@ export default function ContactForm() {
           margin="dense"
         />
         <Button className="contact-form-btn" margin="dense" variant="contained">
-          Save
+          Send
         </Button>
       </form>
+      <img src={mapimg}></img>
     </Container>
   );
 }
