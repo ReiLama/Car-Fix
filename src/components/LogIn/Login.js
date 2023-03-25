@@ -48,15 +48,15 @@ const Login = () => {
                 <TextField margin="normal" type={'password'}variant="outlined" placeholder="Password"/>
                 {
                     logging ? 
-                    <Button sx={{marginTop:3 ,borderRadius: 3}} variant="contained"  >LogIn</Button>
+                    <Button sx={{marginTop:3 ,borderRadius: 3, backgroundColor: "rgb(40, 47, 140)"}} variant="contained"  >LogIn</Button>
                     :
-                    <Button sx={{marginTop:3 ,borderRadius: 3}} variant="contained"  >SingUp</Button>
+                    <Button sx={{marginTop:3 ,borderRadius: 3, backgroundColor: "rgb(40, 47, 140)"}} variant="contained"  >SingUp</Button>
                 }
                 {
                     logging ? 
-                    <Button sx={{marginTop:3 ,borderRadius: 3}} onClick={()=> setLogging(false)}  >Change to SignUp</Button>
+                    <Button sx={{marginTop:3 ,borderRadius: 3, color: "rgb(40, 47, 140)"}} onClick={()=> setLogging(false)}  >Change to SignUp</Button>
                     :
-                    <Button sx={{marginTop:3 ,borderRadius: 3}} onClick={()=> setLogging(true)} >Change to LogIn</Button>
+                    <Button sx={{marginTop:3 ,borderRadius: 3, color: "rgb(40, 47, 140)"}} onClick={()=> setLogging(true)} >Change to LogIn</Button>
                 }
                 
 

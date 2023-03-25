@@ -67,9 +67,12 @@ const Providers = () => {
                     </div>
                     <Divider />
                     {
-                        providers.map((provider)=>{
-                            return <ProviderCard provider={provider} key={provider.id} />
-                        })
+                      providers.lenght < 1 ? 
+                      providers.map((provider)=>{
+                          return <ProviderCard provider={provider} key={provider.id} />
+                      })
+                      :
+                      <h1 style={{ color: "grey" }}>No providers found</h1>
                     }
                 </div>
             </ConfigProvider>
