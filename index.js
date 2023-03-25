@@ -50,7 +50,7 @@ app.get('/api/services', (req, res) => {
   res.json({
     "status": "success",
     "data": LS.all('services')
-  })
+  }) 
 })
 
 app.get('/api/services/:serviceId', (req, res) => {
