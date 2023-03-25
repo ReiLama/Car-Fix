@@ -14,7 +14,7 @@ const ProviderDetails = () => {
 
     const { id } = useParams();
     const [provider, setProvider] = useState({});
-    const [owner] = useState(false);
+    const [owner] = useState(true);
     const [services, setServices] = useState([]);
     const [open, setOpen] = useState(false);
     const [openService, setOpenService] = useState(false);

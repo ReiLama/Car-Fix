@@ -7,7 +7,7 @@ const CreateProvider = ({ open, handleClose }) => {
 
     const navigate = useNavigate();
 
-    const [logged] = useState(false);
+    const [logged] = useState(true);
     const [name, setName] = useState("");
     const [bio, setBio] = useState("");
     const [location, setLocation] = useState("");
