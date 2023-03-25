@@ -23,7 +23,7 @@ const pages = [
   },
   {
     name: "About",
-    link: "/about"
+    link: "/aboutus"
   },
   {
     name: "Contact",
@@ -50,7 +50,9 @@ const settings = [
 ];
 
 function Homepage() {
+
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [logged] = React.useState(false);
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -104,14 +106,24 @@ function Homepage() {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {settings.map((setting) => (
+                { 
+                  logged ? 
+                  settings.map((setting) => (
                   <MenuItem key={setting} onClick={handleCloseUserMenu}>
                     <Typography textAlign="center">
                       <Link style={{ textDecoration: "none", color: "black" }} to={setting.link}>{setting.name}</Link>
                     </Typography>
                     <ToggleProfileMenu />
                   </MenuItem>
-                ))}
+                  ))
+                  :
+                  <MenuItem onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">
+                  <Link style={{ textDecoration: "none", color: "black" }} to="/login">Log In</Link>
+                  </Typography>
+                  <ToggleProfileMenu />
+                  </MenuItem>
+                }
               </Menu>
             </Box>
           </Toolbar>

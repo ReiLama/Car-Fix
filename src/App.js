@@ -19,11 +19,10 @@ function App() {
         <Route path="/provider_details/:id" element={<ProviderDetails />}></Route>
         <Route path="/profile" element={<ProfileMenu />}></Route>
         {/* <Route path="/MyReservations" element={<MyReservations />}></Route> */}
-         <Route path="/MyCars" element={<Cars />}></Route>
+        <Route path="/MyCars" element={<Cars />}></Route>
         {/* <Route path="/Contact" element={<Contact />}></Route> */}
-        {/* <Route path="/About" element={<About />}></Route> */}
         <Route path="/Login" element={<Login />}></Route>
-            <Route path="/aboutus" element={<AboutUS />}></Route>
+        <Route path="/aboutus" element={<AboutUS />}></Route>
       </Routes>
     </Router>
   );
