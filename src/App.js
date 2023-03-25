@@ -7,7 +7,7 @@ import AboutUS from "./components/AboutUs/AboutUs";
 import Cars from "./components/Mycars/Mycars";
 import Services from "./components/Services/Services";
 import ProfileMenu from "./components/Homepage/ProfileMenu/ProfileMenu";
-import Login from "./components/LogIn/Login";
+import Login from "./components/Login/Login";
 
 function App() {
   return (
