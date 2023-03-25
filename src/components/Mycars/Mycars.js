@@ -25,7 +25,7 @@ const CustomCard = styled(Card)(({ theme }) => ({
   },
   '& h3': {
     marginBottom: theme.spacing(1),
-  },
+  }
 }));
 
 function Cars() {

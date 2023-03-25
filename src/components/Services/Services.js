@@ -80,9 +80,12 @@ const Services = () => {
                 </div>
                 <Divider />
                 {
+                    services.length ?
                     services.map((service) => {
                     return <ServiceCard service={service} key={service.id} />
                     })
+                    :
+                    <h1 style={{ color: "grey" }}>No services found</h1>
                 }
             </ConfigProvider>
         </div>

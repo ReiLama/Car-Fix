@@ -2,6 +2,7 @@ const express = require('express');
 const { LocalStorage } = require('node-localstorage');
 localStorage = new LocalStorage('./scratch');
 const initial_services = require('./initialData/services');
+const initial_providers = require('./initialData/providers');
 const LS = require('./helpers/localStorage');
 const app = express();
 const port = 5001;
@@ -9,8 +10,8 @@ const cors = require('cors');
 
 app.use(cors());
 app.use('/static', express.static('images'));
-app.use(express.json())
-app.use(express.urlencoded({extended: true}))
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 
 const multer = require('multer');
@@ -23,7 +24,7 @@ const storage = multer.diskStorage({
   }
 });
 
-const upload = multer({storage: storage})
+const upload = multer({storage: storage});
 
 // this is important to disable cors
 app.use((req, res, next) => {
@@ -34,14 +35,15 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
-})
+});
 
-let services = LS.all('services');
+let providers = LS.all('providers');
 
-console.log(`serviset ne local storage ne momentin qe serveri ndizet: ${services.length}`)
+console.log(`providers ne local storage ne momentin qe serveri ndizet: ${providers.length}`);
 
-if (services.length == 0) {
+if (providers.length == 0) {
   LS.addALL('services', initial_services);
+  LS.addALL('providers', initial_providers);
 }
 
 //SERVICES/////////////
@@ -50,8 +52,13 @@ app.get('/api/services', (req, res) => {
   res.json({
     "status": "success",
     "data": LS.all('services')
+<<<<<<< HEAD
   }) 
 })
+=======
+  })
+});
+>>>>>>> 613f26e761e7580aa6edc94401f64bd3b133a3ae
 
 app.get('/api/services/:serviceId', (req, res) => {
   res.json({
