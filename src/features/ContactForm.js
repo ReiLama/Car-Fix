@@ -56,7 +56,7 @@ export default function ContactForm() {
           </form>
         </Col>
         <Col span={12}>
-          <img className="imag" src={mapimg}></img>
+          <img className="image" src={mapimg}></img>
         </Col>
       </Row>
     </Container>
