@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import { Col, Divider, Row } from 'antd';
 import { Typography, Container } from '@mui/material';
 import  './mycars.scss';
+import fetchData from '../../services/fetchData';
 // Define a custom Card component with some additional styles
 
 const CustomCard = styled(Card)(({ theme }) => ({
@@ -79,6 +80,14 @@ function Cars() {
   const handleTypeChange = (event) => {
     setType(event.target.value);
   };
+
+  //fetch data from the server
+  const fetchData = async () => {
+    const response = await fetch('http://localhost:3001/cars');
+    const data = await response.json();
+    setFormData(data);
+  };
+
 
   return (
     <div className="App" style={{ padding: '50px' }}>
