@@ -8,7 +8,6 @@ import Cars from "./components/Mycars/Mycars";
 import Services from "./components/Services/Services";
 import ProfileMenu from "./components/Homepage/ProfileMenu/ProfileMenu";
 import Login from "./components/Login/Login";
-import ReservationCalendar from "./components/Reservation/reser";
 
 function App() {
   return (
@@ -24,7 +23,6 @@ function App() {
         {/* <Route path="/Contact" element={<Contact />}></Route> */}
         <Route path="/Login" element={<Login />}></Route>
         <Route path="/aboutus" element={<AboutUS />}></Route>
-        <ReservationCalendar></ReservationCalendar>
       </Routes>
     </Router>
   );

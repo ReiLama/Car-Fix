@@ -15,7 +15,7 @@ const ServiceCard = ({ service }) => {
         })
     }, [service]);
 
-    return ( 
+    return service && ( 
         <div className="service-card">
             <div className="img-container">
                 <img src={service.image_url} alt="img" />

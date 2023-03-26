@@ -1,9 +1,9 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, TextField } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Reservation from './reservation';
+// import Reservation from './reservation';
 
-const Reserve = ({ open, handleClose }) => {
+const Reser = ({ openReservation, handleCloseReservation }) => {
 
     const navigate = useNavigate();
 
@@ -45,7 +45,7 @@ const Reserve = ({ open, handleClose }) => {
     };
 
     return ( 
-        <Dialog open={open}>
+        <Dialog open={openReservation}>
             <form>
                 <DialogTitle>Create a new provider</DialogTitle>
                 <DialogContent>
@@ -60,12 +60,12 @@ const Reserve = ({ open, handleClose }) => {
                             <TextField value={note} onChange={handleNoteChange} id="outlined-basic" label="Note" variant="outlined" fullWidth />
                         </Grid>
                         <Grid item>
-                            <Reservation />
+                            {/* <Reservation /> */}
                         </Grid>
                     </Grid>
                 </DialogContent>
                 <DialogActions>
-                <Button style={{ color: "#282F66" }} onClick={handleClose}>Cancel</Button>
+                <Button style={{ color: "#282F66" }} onClick={handleCloseReservation}>Cancel</Button>
                 <Button onClick={handleSubmit} style={{ color: "#282F66" }}>Reserve</Button>
                 </DialogActions>
             </form>
@@ -73,6 +73,6 @@ const Reserve = ({ open, handleClose }) => {
      );
 }
  
-export default Reserve;
+export default Reser;
 
                                            

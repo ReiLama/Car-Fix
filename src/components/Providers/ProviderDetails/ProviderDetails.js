@@ -8,14 +8,14 @@ import CreateProvider from '../../shared/CreateProviderPopup/CreateProvider';
 import CreateService from '../../shared/CreateServicePopup/CreateService';
 import DeleteProvider from '../../shared/DeleteProvider/DeleteProvider';
 import EditProvider from '../../shared/EditProvider/EditProvider';
-import Reservation from '../../Reservation/reser.js';
+import Reser from '../../Reservation/Reser';
 
 
 const ProviderDetails = () => {
 
     const { id } = useParams();
     const [provider, setProvider] = useState({});
-    const [owner] = useState(true);
+    const [owner] = useState(false);
     const [services, setServices] = useState([]);
     const [open, setOpen] = useState(false);
     const [openService, setOpenService] = useState(false);
@@ -105,6 +105,7 @@ const ProviderDetails = () => {
                         <Button danger type='primary' className="button" onClick={handleClickOpenDelete}><b>Delete Provider</b></Button>
                     </>
                     }
+                    <Reser openReservation={openReservation} handleCloseReservation={handleCloseReservation} id={provider.id} key={id}  />
                     <EditProvider openProviderEdit={openProviderEdit} handleCloseProviderEdit={handleCloseProviderEdit} id={provider.id} provider={provider} />
                     <DeleteProvider openDelete={openDelete} handleCloseDelete={handleCloseDelete} id={provider.id} key={id} />
                 </div>
