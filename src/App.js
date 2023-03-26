@@ -8,6 +8,7 @@ import Cars from "./components/Mycars/Mycars";
 import Services from "./components/Services/Services";
 import ProfileMenu from "./components/Homepage/ProfileMenu/ProfileMenu";
 import Login from "./components/Login/Login";
+import ReservationCalendar from "./components/Reservation/reser";
 
 function App() {
   return (
@@ -18,11 +19,12 @@ function App() {
         <Route path="/providers" element={<Providers />}></Route>
         <Route path="/provider_details/:id" element={<ProviderDetails />}></Route>
         <Route path="/profile" element={<ProfileMenu />}></Route>
-        {/* <Route path="/MyReservations" element={<MyReservations />}></Route> */}
+        {/* <Route path="/reservation" element={<ReservationCalendar />}></Route> */}
          <Route path="/MyCars" element={<Cars />}></Route>
         {/* <Route path="/Contact" element={<Contact />}></Route> */}
         <Route path="/Login" element={<Login />}></Route>
         <Route path="/aboutus" element={<AboutUS />}></Route>
+        <ReservationCalendar></ReservationCalendar>
       </Routes>
     </Router>
   );

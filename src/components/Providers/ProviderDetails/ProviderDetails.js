@@ -8,6 +8,7 @@ import CreateProvider from '../../shared/CreateProviderPopup/CreateProvider';
 import CreateService from '../../shared/CreateServicePopup/CreateService';
 import DeleteProvider from '../../shared/DeleteProvider/DeleteProvider';
 import EditProvider from '../../shared/EditProvider/EditProvider';
+import Reservation from '../../Reservation/reser.js';
 
 
 const ProviderDetails = () => {
@@ -20,6 +21,7 @@ const ProviderDetails = () => {
     const [openService, setOpenService] = useState(false);
     const [openDelete, setOpenDelete] = useState(false);
     const [openProviderEdit, setOpenProviderEdit] = useState(false);
+    const [openReservation, setOpenReservation] = useState(false);
 
     useLayoutEffect(()=>{
         fetch("http://localhost:5001/api/providers/" + id)
@@ -65,8 +67,16 @@ const ProviderDetails = () => {
         setOpenProviderEdit(true);
     };
     
-      const handleCloseProviderEdit = () => {
+    const handleCloseProviderEdit = () => {
         setOpenProviderEdit(false);
+    };
+
+    const handleClickOpenReservation = () => {
+        setOpenReservation(true);
+    };
+    
+    const handleCloseReservation = () => {
+        setOpenReservation(false);
     };
 
     return ( 
@@ -87,7 +97,7 @@ const ProviderDetails = () => {
                     <Divider />
                     {                    
                     !owner ? 
-                    <Button type="primary" className="button">Add Reservation</Button>
+                    <Button type="primary" className="button" onClick={handleClickOpenReservation}><b>Add Reservation</b></Button>
                     :
                     <>
                         <Button type="primary" className="button" onClick={handleClickOpenProviderEdit}><b>Edit Provider</b></Button>
