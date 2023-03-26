@@ -7,6 +7,7 @@ const LS = require('./helpers/localStorage');
 const app = express();
 const port = 5001;
 const cors = require('cors');
+const { body, validationResult } = require('express-validator');
 
 app.use(cors());
 app.use('/static', express.static('images'));
@@ -45,6 +46,36 @@ if (providers.length == 0) {
   LS.addALL('services', initial_services);
   LS.addALL('providers', initial_providers);
 }
+
+//USERS////////////////
+
+app.post(
+  '/api/user',
+  // email must be an email
+  body('email').isEmail(),
+  // password must be at least 5 chars long
+  body('password').isLength({ min: 5 }),
+  body('name').exists({ checkFasly: true }),
+  body('surname').exists({ checkFasly: true }),
+  (req, res) => {
+    // Finds the validation errors in this request and wraps them in an object with handy functions
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const created_user = LS.create('users', {
+      email: req.body.email,
+      password: req.body.password,
+      name: req.body.name,
+      surname: req.body.username
+    });
+    res.json({
+      "status": "success",
+      "data": created_user
+    })
+  },
+);
 
 //SERVICES/////////////
 
