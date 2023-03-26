@@ -19,6 +19,8 @@ const Signup = () => {
             console.log("Passwords do not match");
             setPasswordMatch(false);
         }
+
+        
     };
     let navigate = useNavigate();
     const routeLogin = () => {
